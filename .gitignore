@@ -1,0 +1,7 @@
+/.idea/
+/.git/
+/public/assets/*
+/public/protected/runtime/*
+/public/themes/classic/views/
+/public/protected/data/*
+!index.html
