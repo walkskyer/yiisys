@@ -1,8 +1,9 @@
 <?php
-
+defined('DS') or define('DS', DIRECTORY_SEPARATOR);
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/../../yii/framework/yii.php';
 $config=dirname(__FILE__).'/protected/config/main.php';
+require_once dirname(__FILE__).'/protected/library/shortcut.php';
 
 // remove the following lines when in production mode
 defined('YII_DEBUG') or define('YII_DEBUG',true);
