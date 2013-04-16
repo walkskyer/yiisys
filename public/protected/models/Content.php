@@ -41,8 +41,8 @@ class Content extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, modified, created', 'required'),
-			array('catid, modified, created', 'numerical', 'integerOnly'=>true),
+			array('title', 'required'),
+			array('catid', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
 			array('keywords, summary, tag', 'length', 'max'=>255),
 			array('content', 'safe'),
@@ -114,4 +114,12 @@ class Content extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    public function beforeSave(){
+        $this->modified=time();
+        if($this->getIsNewRecord()){
+            $this->created=$this->modified;
+        }
+        return parent::beforeSave();
+    }
 }
