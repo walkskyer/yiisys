@@ -70,14 +70,14 @@ class Content extends CActiveRecord
 	{
 		return array(
 			'cnt_id' => 'Cnt',
-			'catid' => 'Catid',
-			'title' => 'Title',
-			'content' => 'Content',
-			'keywords' => 'Keywords',
-			'summary' => 'Summary',
-			'tag' => 'Tag',
-			'modified' => 'Modified',
-			'created' => 'Created',
+			'catid' => '分类id',
+			'title' => '标题',
+			'content' => '内容',
+			'keywords' => '关键字',
+			'summary' => '摘要',
+			'tag' => '标签',
+			'modified' => '修改时间',
+			'created' => '创建时间',
 		);
 	}
 
