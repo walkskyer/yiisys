@@ -193,7 +193,7 @@ return array(
     'create_posts' => '发表文章',
     'latest_posts' => '最新发布',
     'verify_posts' => '审核文章',
-    'search_posts' => '搜索文章',
+    'manage_posts' => '管理文章',
     'hottest_posts' => '热门文章',
     'editor_recommend_posts' => '编辑推荐',
     'home_show_posts' => '首页推荐',
