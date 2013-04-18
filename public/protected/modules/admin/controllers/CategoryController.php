@@ -6,10 +6,10 @@ class CategoryController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='';
 
 	/**
-	 * @var CActiveRecord the currently loaded data model instance.
+	 * @var Category the currently loaded data model instance.
 	 */
 	private $_model;
 
@@ -74,11 +74,13 @@ class CategoryController extends Controller
 		{
 			$model->attributes=$_POST['Category'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->catid));
+				$this->redirect(array('update','id'=>$model->catid));
 		}
-
+        $catTree=array(0=>'顶级分类');
+        $model->categoryList($model->getTree(3),$catTree);
 		$this->render('create',array(
 			'model'=>$model,
+            'catTree'=>$catTree
 		));
 	}
 
@@ -97,11 +99,13 @@ class CategoryController extends Controller
 		{
 			$model->attributes=$_POST['Category'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->catid));
+				$this->redirect(array('update','id'=>$model->catid));
 		}
-
+        $catTree=array(0=>'顶级分类');
+        $model->categoryList($model->getTree(3),$catTree);
 		$this->render('update',array(
 			'model'=>$model,
+            'catTree'=>$catTree
 		));
 	}
 
@@ -150,11 +154,11 @@ class CategoryController extends Controller
 		));
 	}
 
-	/**
-	 * Returns the data model based on the primary key given in the GET variable.
-	 * If the data model is not found, an HTTP exception will be raised.
-	 */
-	public function loadModel()
+    /**
+     * @return Category
+     * @throws CHttpException
+     */
+    public function loadModel()
 	{
 		if($this->_model===null)
 		{
