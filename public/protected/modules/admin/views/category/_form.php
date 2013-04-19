@@ -20,7 +20,7 @@
 <div class="control-group bottom10px <?php if ($model->hasErrors($field)) echo 'error';?>">
     <?php echo $form->labelEx($model, $field, array('class' => 'control-label')); ?>
     <div class="controls">
-        <?php echo $form->textField($model, $field, array('class' => 'span6')); ?>
+        <?php echo $form->textField($model, $field, array('class' => 'span4')); ?>
         <?php if ($model->hasErrors($field)): ?>
         <p class="help-block"><?php echo $form->error($model, $field);?></p>
         <?php endif;?>
@@ -31,7 +31,7 @@
 <div class="control-group bottom10px <?php if ($model->hasErrors($field)) echo 'error';?>">
     <?php echo $form->labelEx($model, $field, array('class' => 'control-label')); ?>
     <div class="controls">
-        <?php echo $form->textArea($model, $field, array('class' => 'span6')); ?>
+        <?php echo $form->textArea($model, $field, array('class' => 'span4')); ?>
         <?php if ($model->hasErrors($field)): ?>
         <p class="help-block"><?php echo $form->error($model, $field);?></p>
         <?php endif;?>
@@ -42,7 +42,7 @@
 <div class="control-group bottom10px <?php if ($model->hasErrors($field)) echo 'error';?>">
     <?php echo $form->labelEx($model, $field, array('class' => 'control-label')); ?>
     <div class="controls">
-        <?php echo $form->textField($model, $field, array('class' => 'span6')); ?>
+        <?php echo $form->textField($model, $field, array('class' => 'span4')); ?>
         <?php if ($model->hasErrors($field)): ?>
         <p class="help-block"><?php echo $form->error($model, $field);?></p>
         <?php endif;?>
@@ -55,7 +55,7 @@
     <div class="controls">
         <?php
         /* @var array $catTree*/
-        echo $form->dropDownList($model, $field,$catTree,array('class' => 'span6')); ?>
+        echo $form->dropDownList($model, $field,$catTree,array('class' => 'span4')); ?>
         <?php if ($model->hasErrors($field)): ?>
         <p class="help-block"><?php echo $form->error($model, $field);?></p>
         <?php endif;?>

@@ -82,7 +82,7 @@ td.column-label {width:150px; text-align:right;}
 /* post list */
 .sys-list-table form {margin:0; margin-top:3px;}
 .sys-list-table form .checkbox {font-size:12px; margin-left:1px;}
-.table-post-list td {height:42px;}
+.table-post-list td {height:20px;}
 .sys-list-table .quick-links {margin-top:5px;}
 .post-info tr td {padding-right:15px; padding-left:15px;}
 .post-info tr td:first-child {width:150px; text-align:right; color:gray;}

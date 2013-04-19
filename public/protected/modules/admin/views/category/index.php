@@ -4,13 +4,13 @@
 ?>
 
 <h1>分类管理</h1>
-<table class="table table-striped table-bordered beta-list-table table-post-list">
+<table class="table table-striped table-bordered sys-list-table table-post-list">
     <thead>
     <tr>
-        <th class="span6">分类</th>
-        <th class="span1">分类层级</th>
+        <th class="span4 align-center">分类名称</th>
+        <th class="span2 align-center">分类层级</th>
         <th class="span2 align-center">发布时间</th>
-        <th>操作</th>
+        <th class="align-center">操作</th>
     </tr>
     </thead>
     <tbody>

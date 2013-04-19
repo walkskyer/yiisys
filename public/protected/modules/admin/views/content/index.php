@@ -6,7 +6,7 @@
 </div>
 
 <?php $template=<<<EOF
-<table class="table table-striped table-bordered beta-list-table table-post-list">
+<table class="table table-striped table-bordered sys-list-table table-post-list">
     <thead>
     <tr>
         <th class="item-checkbox align-center">#</th>
