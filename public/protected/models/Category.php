@@ -87,7 +87,7 @@ class Category extends CActiveRecord
      * @param int $level
      * @return array
      */
-    public function getTree($level=2){
+    public function getTree($level=10){
         $level=intval($level);
         if(!$level){
             return array();

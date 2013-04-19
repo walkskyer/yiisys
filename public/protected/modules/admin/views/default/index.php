@@ -47,7 +47,7 @@
                         <li class="divider"></li>
                         <li class="nav-header"><?php echo t('post_category', 'admin');?></li>
                         <li><?php echo l(t('create_category', 'admin'), url('admin/category/create'), array('target'=>'main'));?></li>
-                        <li><?php echo l(t('category_list_table', 'admin'), url('admin/category/list'), array('target'=>'main'));?></li>
+                        <li><?php echo l(t('category_list_table', 'admin'), url('admin/category/index'), array('target'=>'main'));?></li>
                         <!-- <li><?php echo l(t('category_statistics', 'admin'), url('admin/category/statistics'), array('target'=>'main'));?></li> -->
                     </ul>
                 </li>

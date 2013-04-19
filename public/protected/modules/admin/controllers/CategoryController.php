@@ -115,7 +115,7 @@ class CategoryController extends Controller
 	 */
 	public function actionDelete()
 	{
-		if(Yii::app()->request->isPostRequest)
+		if(Yii::app()->request->requestType=='GET')
 		{
 			// we only allow deletion via POST request
 			$this->loadModel()->delete();
@@ -133,9 +133,9 @@ class CategoryController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Category');
+		$catTree=Category::model()->getTree();
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'catTree'=>$catTree,
 		));
 	}
 

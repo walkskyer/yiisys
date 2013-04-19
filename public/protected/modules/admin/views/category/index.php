@@ -1,17 +1,49 @@
 <?php
-$this->breadcrumbs=array(
-	'Categories',
-);
-
-$this->menu=array(
-	array('label'=>'Create Category', 'url'=>array('create')),
-	array('label'=>'Manage Category', 'url'=>array('admin')),
-);
+/* @var CategoryController $this*/
+/* @var array $catTree*/
 ?>
 
-<h1>Categories</h1>
+<h1>分类管理</h1>
+<table class="table table-striped table-bordered beta-list-table table-post-list">
+    <thead>
+    <tr>
+        <th class="span6">分类</th>
+        <th class="span1">分类层级</th>
+        <th class="span2 align-center">发布时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php category_list($catTree,$this);?>
+    </tbody>
+</table>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+<?php
+function level_style($level,$style='----'){
+    $level=intval($level);
+    $return='';
+    if($level){
+        while($level){
+            $return.=$style;
+            $level--;
+        }
+        return $return;
+    }
+    return $return;
+}
+
+function category_list($category,$controller){
+    /* @var CategoryController $controller*/
+    if(is_array($category)){
+        foreach($category as $data){
+            /* @var Category $data*/
+            $controller->renderPartial('_listView',array('data'=>$data));
+            if(!is_null($data->son)){
+                category_list($data->son,$controller);
+            }
+        }
+    }else{
+        $controller->renderPartial('_listView',array('data'=>$category));
+    }
+}
+?>
