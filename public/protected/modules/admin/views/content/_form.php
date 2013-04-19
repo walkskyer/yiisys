@@ -59,6 +59,18 @@
         <?php endif;?>
     </div>
 </div>
+<?php $field = 'catid'; ?>
+<div class="control-group bottom10px <?php if ($model->hasErrors($field)) echo 'error';?>">
+    <?php echo $form->labelEx($model, $field, array('class' => 'control-label')); ?>
+    <div class="controls">
+        <?php
+        /* @var array $catTree*/
+        echo $form->dropDownList($model, $field, $catTree,array('class' => 'span3')); ?>
+        <?php if ($model->hasErrors($field)): ?>
+        <p class="help-block"><?php echo $form->error($model, $field);?></p>
+        <?php endif;?>
+    </div>
+</div>
 
 <div class="form-actions">
     <?php echo CHtml::submitButton($model->isNewRecord ? '添加' : '修改', array('class' => 'btn btn-primary')); ?>

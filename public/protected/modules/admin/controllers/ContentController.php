@@ -79,8 +79,14 @@ class ContentController extends Controller
 				$this->redirect(array('update','id'=>$model->cnt_id));
 		}
 
+        /* @var array $catTree*/
+        $catTree=array(0=>'无分类');
+        $catModel=new Category();
+        $catModel->categoryList($catModel->getTree(),$catTree);
+
 		$this->render('create',array(
 			'model'=>$model,
+            'catTree'=>$catTree,
 		));
 	}
 
@@ -102,8 +108,14 @@ class ContentController extends Controller
 				$this->redirect(array('update','id'=>$model->cnt_id));
 		}
 
+        /* @var array $catTree*/
+        $catTree=array(0=>'无分类');
+        $catModel=new Category();
+        $catModel->categoryList($catModel->getTree(),$catTree);
+
 		$this->render('update',array(
 			'model'=>$model,
+            'catTree'=>$catTree,
 		));
 	}
 
