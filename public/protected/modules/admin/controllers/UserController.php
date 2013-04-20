@@ -6,7 +6,7 @@ class UserController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='';
 
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.
@@ -32,7 +32,7 @@ class UserController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','search'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -74,7 +74,7 @@ class UserController extends Controller
 		{
 			$model->attributes=$_POST['User'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->userid));
+				$this->redirect(array('update','id'=>$model->userid));
 		}
 
 		$this->render('create',array(
@@ -97,7 +97,7 @@ class UserController extends Controller
 		{
 			$model->attributes=$_POST['User'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->userid));
+				$this->redirect(array('update','id'=>$model->userid));
 		}
 
 		$this->render('update',array(
@@ -111,14 +111,14 @@ class UserController extends Controller
 	 */
 	public function actionDelete()
 	{
-		if(Yii::app()->request->isPostRequest)
+		if(Yii::app()->request->requestType=='GET')
 		{
 			// we only allow deletion via POST request
 			$this->loadModel()->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
-				$this->redirect(array('index'));
+				$this->redirect(Yii::app()->request->getUrlReferrer());
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
@@ -134,6 +134,16 @@ class UserController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
+    /**
+     * Lists all models.
+     */
+    public function actionSearch()
+    {
+        $dataProvider=new CActiveDataProvider('User');
+        $this->render('search',array(
+            'dataProvider'=>$dataProvider,
+        ));
+    }
 
 	/**
 	 * Manages all models.

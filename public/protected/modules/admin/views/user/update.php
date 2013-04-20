@@ -1,18 +1,11 @@
 <?php
-$this->breadcrumbs=array(
-	'Users'=>array('index'),
-	$model->userid=>array('view','id'=>$model->userid),
-	'Update',
-);
-
-$this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Create User', 'url'=>array('create')),
-	array('label'=>'View User', 'url'=>array('view', 'id'=>$model->userid)),
-	array('label'=>'Manage User', 'url'=>array('admin')),
-);
+/* @var UserController $this*/
+/* @var User $model*/
 ?>
-
-<h1>Update User <?php echo $model->userid; ?></h1>
+<div class="sys-container">
+    <fieldset>
+        <legend>编辑用户：<?php echo $model->username; ?></legend>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+    </fieldset>
+</div>
