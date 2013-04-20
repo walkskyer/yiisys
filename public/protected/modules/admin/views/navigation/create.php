@@ -1,15 +1,11 @@
 <?php
-$this->breadcrumbs=array(
-	'Navigations'=>array('index'),
-	'Create',
-);
-
-$this->menu=array(
-	array('label'=>'List Navigation', 'url'=>array('index')),
-	array('label'=>'Manage Navigation', 'url'=>array('admin')),
-);
+/* @var NavigationController $this*/
+/* @var Navigation $model*/
 ?>
-
-<h1>Create Navigation</h1>
+<div class="sys-container">
+    <fieldset>
+        <legend>添加用户</legend>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+    </fieldset>
+</div>

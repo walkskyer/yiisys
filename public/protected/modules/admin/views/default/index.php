@@ -104,6 +104,10 @@
                         <li class="divider"></li>
                         <li class="nav-header"><?php echo t('custom_config_params', 'admin');?></li>
                         <li><?php echo l(t('create_custom_param', 'admin'), url('admin/config/create'), array('target'=>'main'));?></li>
+                        <li class="divider"></li>
+                        <li class="nav-header"><?php echo t('navigation_name', 'admin');?></li>
+                        <li><?php echo l(t('navigation_create', 'admin'), url('admin/navigation/create'), array('target'=>'main'));?></li>
+                        <li><?php echo l(t('navigation_manage', 'admin'), url('admin/navigation/index'), array('target'=>'main'));?></li>
                     </ul>
                 </li>
             </ul>

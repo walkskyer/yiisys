@@ -37,6 +37,7 @@ class Navigation extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('nav_name, url_data', 'length', 'max'=>45),
+            array('url_data', 'length', 'max'=>255),
 			array('type', 'length', 'max'=>5),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

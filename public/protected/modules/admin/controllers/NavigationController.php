@@ -6,7 +6,7 @@ class NavigationController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='';
 
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.
@@ -74,7 +74,7 @@ class NavigationController extends Controller
 		{
 			$model->attributes=$_POST['Navigation'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->navid));
+				$this->redirect(array('update','id'=>$model->navid));
 		}
 
 		$this->render('create',array(
@@ -97,7 +97,7 @@ class NavigationController extends Controller
 		{
 			$model->attributes=$_POST['Navigation'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->navid));
+				$this->redirect(array('update','id'=>$model->navid));
 		}
 
 		$this->render('update',array(
@@ -111,7 +111,7 @@ class NavigationController extends Controller
 	 */
 	public function actionDelete()
 	{
-		if(Yii::app()->request->isPostRequest)
+		if(Yii::app()->request->requestType=='GET')
 		{
 			// we only allow deletion via POST request
 			$this->loadModel()->delete();
