@@ -16,9 +16,11 @@
  */
 class Category extends CActiveRecord
 {
-    /* @var array
+    /* @var array 栏目子分类列表
      */
     public $son;
+    /* @var string 子分类名称前缀*/
+    public $son_prefix='';
     /**
 	 * Returns the static model of the specified AR class.
 	 * @return Category the static model class
@@ -116,7 +118,7 @@ class Category extends CActiveRecord
     }
 
     /**
-     * 取得序列化的分类列表
+     * 通过递归将树形结构分类信息转化成父分类子分类顺序排列的一维数组。
      * @param int $level
      * @return array
      */
@@ -132,6 +134,32 @@ class Category extends CActiveRecord
         }else{
             $list[$tree->catid]=$conj.$tree->cat_name;
         }
+    }
+
+    /**
+     * 通过迭代将树形结构分类信息转化成父分类子分类顺序排列的一维数组。
+     * @param $catTree
+     * @param string $conj
+     * @return array
+     */
+    public function treeList($catTree,$conj=''){
+        if(empty($catTree)) return array();
+        $store=array_reverse($catTree);
+        $treeList=array();
+        while(!empty($store)){
+            /* @var Category $cat*/
+            $cat=array_pop($store);
+            $treeList[$cat->catid]=$cat;
+            if(!is_null($cat->son)){
+                $son=array_reverse($cat->son);
+                /* @var Category $son_cat*/
+                foreach($son as $son_cat){
+                    $son_cat->son_prefix=$cat->son_prefix.$conj;
+                    array_push($store,$son_cat);
+                }
+            }
+        }
+        return $treeList;
     }
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
