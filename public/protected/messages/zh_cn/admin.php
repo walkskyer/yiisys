@@ -238,6 +238,11 @@ return array(
     'user_is_not_exist' => '该用户不存在',
     'reset_user_passwd' => '重置用户密码',
     'user_resetpwd_success' => '修改{name}密码成功',
+
+    /* Navigation manager */
+    'navigation_name'=>'导航',
+    'navigation_create' => '添加导航',
+    'navigation_manage' => '管理导航',
         
     /* config manage */
     'custome_config_params' => '自定义参数',
